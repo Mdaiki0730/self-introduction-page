@@ -1,5 +1,6 @@
 const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, "../src/index.jsx"),
@@ -15,6 +16,7 @@ module.exports = {
               '@babel/preset-env',
               '@babel/preset-react'
             ],
+            plugins: ['@babel/plugin-transform-runtime']
           }
         }
       },
@@ -27,6 +29,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "../public/index.html"),
+    }),
+    new ESLintPlugin({
+      extensions: [ '.ts', '.js', '.jsx' ],
     }),
   ],
   resolve: {
