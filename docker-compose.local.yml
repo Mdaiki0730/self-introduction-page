@@ -9,5 +9,5 @@ services:
       - .:/app
     command: "npm start"
     ports:
-      - 8002:3000
+      - 3000:3000
     tty: true
